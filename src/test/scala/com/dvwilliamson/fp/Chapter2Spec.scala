@@ -1,5 +1,6 @@
 package com.dvwilliamson.fp
 
+import com.dvwilliamson.fp.Chapter2._
 import org.scalatest.{Matchers, WordSpec}
 
 class Chapter2Spec extends WordSpec with Matchers {
@@ -22,18 +23,25 @@ class Chapter2Spec extends WordSpec with Matchers {
     "return true" when {
       "the input is a sorted sequence" in {
         val arr: Array[Int] = Seq(-4, -3, -2, -1, 0, 1, 2, 3, 4).toArray
-        assert(Chapter2.isSorted(arr, ascending))
+        assert(isSorted(arr, ascending))
       }
       "the input is a sorted sequence with repeating numbers" in {
         val arr: Array[Int] = Seq(-2, -1, 0, 1, 2, 2, 2, 3, 4).toArray
-        assert(Chapter2.isSorted(arr, ascending))
+        assert(isSorted(arr, ascending))
       }
     }
     "return false" when {
       "the sequence is not sorted" in {
         val arr: Array[Int] = Seq(-2, -4, 0, 1, 3, 4).toArray
-        assert(!Chapter2.isSorted(arr, ascending))
+        assert(!isSorted(arr, ascending))
       }
+    }
+  }
+
+  "curry" should {
+    "convert a function of two arguments to a function of one argument that partially applies f." in {
+      val res = curry((a: Int, b:Int) => a + b)(14)(22)
+      assert(res == 36)
     }
   }
 

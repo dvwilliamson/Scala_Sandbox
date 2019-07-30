@@ -2,7 +2,7 @@ package com.dvwilliamson.fp
 
 object Chapter2 {
 
-  // Exercise 2.1
+  // Exercise 2.1 - Tail Recursion
   def fib(n: Int): Int = {
 
     @annotation.tailrec
@@ -32,7 +32,11 @@ object Chapter2 {
     compare(0)
   }
 
-
+  // Exercise 2.3 - Currying
+  //   Currying converts a function f of two arguments into a function of one arguments that partially applies f.
+  def curry[A,B,C](f: (A,B) => C): A => (B => C) = {
+    (a: A) => (b: B) => f(a, b)
+  }
 
 
   def main(args: Array[String]): Unit = {
