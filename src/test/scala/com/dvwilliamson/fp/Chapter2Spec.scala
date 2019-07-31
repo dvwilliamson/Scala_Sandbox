@@ -45,4 +45,11 @@ class Chapter2Spec extends WordSpec with Matchers {
     }
   }
 
+  "uncurry" should {
+    "convert a currying function to a single two parameter function" in {
+      val res = uncurry((a: Int) => (b: Int) => a + b)(14, 22)
+      assert(res == 36)
+    }
+  }
+
 }

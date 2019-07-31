@@ -5,6 +5,8 @@ ThisBuild / version := "0.1"
 ThisBuild / scalaVersion := "2.13.0"
 ThisBuild / organization := "com.dvwilliamson"
 
+scalacOptions ++= Seq("-encoding", "utf-8")
+
 //lazy val testing = (project in file("testing"))
 //  .settings(
 //    name := "testing",
@@ -12,3 +14,4 @@ ThisBuild / organization := "com.dvwilliamson"
 //  )
 
 libraryDependencies ++= testDependencies
+resolvers ++= testResolvers

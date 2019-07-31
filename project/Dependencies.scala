@@ -7,4 +7,6 @@ object Dependencies {
     "org.scalatest" %% "scalatest" % "3.0.8" % "test"
   )
 
+  val testResolvers: Seq[sbt.Resolver] = Seq()
+
 }

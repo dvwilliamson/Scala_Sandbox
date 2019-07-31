@@ -38,8 +38,8 @@ object Chapter2 {
     (a: A) => (b: B) => f(a, b)
   }
 
-
-  def main(args: Array[String]): Unit = {
-
+  // Exercise 2.4 - Uncurrying
+  def uncurry[A,B,C](f: A => B => C): (A,B) => C = {
+    (a: A, b: B) => f(a)(b)
   }
 }
