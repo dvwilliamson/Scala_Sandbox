@@ -8,7 +8,7 @@ object Chapter2 {
     @annotation.tailrec
     def go(a: Int, b: Int, n: Int): Int = {
       if (n == 0) a
-      else go(b, a+b, n-1)
+      else go(b, a + b, n - 1)
     }
 
     if (n <= 0) return 0
@@ -21,9 +21,9 @@ object Chapter2 {
   def isSorted[A](as: Array[A], ordered: (A, A) => Boolean): Boolean = {
     @annotation.tailrec
     def compare(pos: Int): Boolean = {
-      if (as.length-1 <= pos) return true
-      if (ordered(as(pos), as(pos+1))) {
-        compare(pos+1)
+      if (as.length - 1 <= pos) return true
+      if (ordered(as(pos), as(pos + 1))) {
+        compare(pos + 1)
       } else {
         false
       }
@@ -34,12 +34,17 @@ object Chapter2 {
 
   // Exercise 2.3 - Currying
   //   Currying converts a function f of two arguments into a function of one arguments that partially applies f.
-  def curry[A,B,C](f: (A,B) => C): A => (B => C) = {
+  def curry[A, B, C](f: (A, B) => C): A => (B => C) = {
     (a: A) => (b: B) => f(a, b)
   }
 
   // Exercise 2.4 - Uncurrying
-  def uncurry[A,B,C](f: A => B => C): (A,B) => C = {
+  def uncurry[A, B, C](f: A => B => C): (A, B) => C = {
     (a: A, b: B) => f(a)(b)
+  }
+
+  // Exercise 2.5 - Function Composition
+  def compose[A, B, C](f: B => C, g: A => B): A => C = {
+    (a: A) => f(g(a))
   }
 }

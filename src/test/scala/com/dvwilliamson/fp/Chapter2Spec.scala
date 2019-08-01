@@ -40,7 +40,7 @@ class Chapter2Spec extends WordSpec with Matchers {
 
   "curry" should {
     "convert a function of two arguments to a function of one argument that partially applies f." in {
-      val res = curry((a: Int, b:Int) => a + b)(14)(22)
+      val res = curry((a: Int, b: Int) => a + b)(14)(22)
       assert(res == 36)
     }
   }
@@ -52,4 +52,10 @@ class Chapter2Spec extends WordSpec with Matchers {
     }
   }
 
+  "compose" should {
+    "feed the output of one function to the input of another function" in {
+      val res = compose((b: Int) => b * 2, (a: Int) => a + 2)(6)
+      assert(res == 16)
+    }
+  }
 }
